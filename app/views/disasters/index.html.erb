@@ -1,0 +1,85 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Disasters</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_disaster_path, class: 'btn btn-primary' do %>
+    Add New Disaster
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>String</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Datetime</th>
+            <th>String</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Indirectly affected</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>String</th>
+            <th>Integer</th>
+            <th>Integer</th>
+            <th>String</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @disasters.each do |disaster| %>
+        <%= content_tag :tr, id: dom_id(disaster), class: dom_class(disaster) do %>
+          
+
+                      <td><%= disaster.string %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.datetime %></td>
+                      <td><%= disaster.string %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.indirectly_affected %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.string %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.integer %></td>
+                      <td><%= disaster.string %></td>
+          
+          
+            <td><%= link_to 'Show', disaster %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

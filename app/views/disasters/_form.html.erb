@@ -1,0 +1,139 @@
+<%= form_with(model: disaster, local: true) do |form| %>
+  <% if disaster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(disaster.errors.count, "error") %> prohibited this disaster from being saved:</h2>
+
+      <ul>
+      <% disaster.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :event %>
+    <%= form.text_field :string, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :province_id %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :district_id %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sector_id %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :date_of_occurence %>
+    <%= form.text_field :datetime, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location %>
+    <%= form.text_field :string, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :deaths %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :injured %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :missing %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :houses_destroyed %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :houses_damaged %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :directly_affected %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :indirectly_affected %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :relocated %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :integer %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :evacuated %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :losses_usd %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :losses_local %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :damages_crops_hectares %>
+    <%= form.text_field :string, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lost_cattle %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :damages_roads_meters %>
+    <%= form.text_field :integer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :string %>
+    <%= form.text_field :string, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if disaster.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', disaster, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if disaster.persisted? %>
+      <%= link_to "Cancel", disaster, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", disasters_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  string: 
+  integer: 
+  integer: 
+  integer: 
+  datetime: 
+  string: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: MyString
+  indirectly_affected: MyString
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  string: 
+  integer: 
+  integer: 
+  string: 
+
+two:
+  string: 
+  integer: 
+  integer: 
+  integer: 
+  datetime: 
+  string: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  integer: MyString
+  indirectly_affected: MyString
+  integer: 
+  integer: 
+  integer: 
+  integer: 
+  string: 
+  integer: 
+  integer: 
+  string: 
