@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to sectors_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Sectors
+  <% end %>
+  <%= link_to edit_sector_path(@sector), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show sector</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @sector.name %></dd>
+
+  <dt>District:</dt>
+  <dd><%= @sector.district_id %></dd>
+
+</dl>

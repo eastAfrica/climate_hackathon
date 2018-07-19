@@ -2,6 +2,11 @@
 // $light-orange: #ff8c00;
 // $navbar-default-color: $light-orange;
 
+/*
+*= require select2
+*= require select2-bootstrap
+*/
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap";
@@ -19,4 +24,5 @@
 // Masquerade alert shouldn't have a bottom margin
 body > .alert {
   margin-bottom: 0;
+
 }

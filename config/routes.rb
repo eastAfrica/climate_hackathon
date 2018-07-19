@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :sectors
+  resources :districts
+  resources :provinces
   namespace :admin do
       resources :users
       resources :announcements
