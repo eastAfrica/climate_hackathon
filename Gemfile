@@ -83,3 +83,5 @@ gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 
 gem "select2-rails"
+
+gem 'open-weather'

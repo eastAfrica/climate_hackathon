@@ -1,9 +1,14 @@
+
+
 class WeathersController < ApplicationController
   before_action :set_weather, only: [:show, :edit, :update, :destroy]
 
   # GET /weathers
   # GET /weathers.json
   def index
+
+    puts "Open weatehr data -------------------------"
+    puts @open_w_data
     @weathers = Weather.all
   end
 
@@ -24,17 +29,17 @@ class WeathersController < ApplicationController
   # POST /weathers
   # POST /weathers.json
   def create
-    @weather = Weather.new(weather_params)
+      @weather = Weather.new(weather_params)
 
-    respond_to do |format|
-      if @weather.save
-        format.html { redirect_to @weather, notice: 'Weather was successfully created.' }
-        format.json { render :show, status: :created, location: @weather }
-      else
-        format.html { render :new }
-        format.json { render json: @weather.errors, status: :unprocessable_entity }
+      respond_to do |format|
+         if @weather.save
+           format.html { redirect_to @weather, notice: 'Weather was successfully created.' }
+           format.json { render :show, status: :created, location: @weather }
+         else
+           format.html { render :new }
+           format.json { render json: @weather.errors, status: :unprocessable_entity }
+         end
       end
-    end
   end
 
   # PATCH/PUT /weathers/1
@@ -69,6 +74,6 @@ class WeathersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weather_params
-      params.require(:weather).permit(:jsonb)
+      params.require(:weather).permit(:weather_data)
     end
 end
