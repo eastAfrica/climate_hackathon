@@ -69,6 +69,6 @@ class DisastersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disaster_params
-      params.require(:disaster).permit(:string, :integer, :integer, :integer, :datetime, :string, :integer, :integer, :integer, :integer, :integer, :integer, :integer, :indirectly_affected, :integer, :integer, :integer, :integer, :string, :integer, :integer, :string)
+      params.require(:disaster).permit(:event, :province_id, :district_id, :sector_id, :datetime, :date_of_occurence, :location, :deaths, :injured, :missing, :houses_destroyed, :houses_damaged, :directly_affected, :indirectly_affected, :relocated, :evacuated, :losses_usd, :losses_local, :damages_crops_hectares, :lost_cattle, :damages_roads_meters, :comments)
     end
 end

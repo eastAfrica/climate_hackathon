@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
 
-    create_table "districts", force: :cascade do |t|
+  create_table "districts", force: :cascade do |t|
     t.string "name"
     t.integer "province_id"
     t.datetime "created_at", null: false
@@ -81,13 +82,16 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer "weather_id"
     t.integer "user_id"
     t.string "status"
-
-  create_table "provinces", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
