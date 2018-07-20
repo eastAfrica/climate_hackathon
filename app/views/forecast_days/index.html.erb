@@ -1,0 +1,45 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Forecast_days</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_forecast_day_path, class: 'btn btn-primary' do %>
+    Add New Forecast day
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Day of forecast</th>
+            <th>Early warning forecast</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @forecast_days.each do |forecast_day| %>
+        <%= content_tag :tr, id: dom_id(forecast_day), class: dom_class(forecast_day) do %>
+          
+
+                      <td><%= forecast_day.day_of_forecast %></td>
+                      <td><%= forecast_day.early_warning_forecast %></td>
+          
+          
+            <td><%= link_to 'Show', forecast_day %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

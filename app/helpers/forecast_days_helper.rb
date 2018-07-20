@@ -1,0 +1,2 @@
+module ForecastDaysHelper
+end

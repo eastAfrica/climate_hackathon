@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to early_warning_forecasts_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Early_warning_forecasts
+  <% end %>
+  <%= link_to edit_early_warning_forecast_path(@early_warning_forecast), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show early_warning_forecast</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>District:</dt>
+  <dd><%= @early_warning_forecast.district_id %></dd>
+
+</dl>

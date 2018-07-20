@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_171734) do
+ActiveRecord::Schema.define(version: 2018_07_20_221548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,29 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
     t.decimal "lat", precision: 10, scale: 6
     t.decimal "long", precision: 10, scale: 6
+  end
+
+  create_table "early_warning_forecasts", force: :cascade do |t|
+    t.integer "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forecast_days", force: :cascade do |t|
+    t.date "day_of_forecast"
+    t.bigint "early_warning_forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["early_warning_forecast_id"], name: "index_forecast_days_on_early_warning_forecast_id"
+  end
+
+  create_table "forecast_hours", force: :cascade do |t|
+    t.string "disruption_level"
+    t.string "probability_of_occurence"
+    t.bigint "forecast_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -143,5 +166,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "forecast_days", "early_warning_forecasts"
+  add_foreign_key "forecast_hours", "forecast_days"
   add_foreign_key "services", "users"
 end
