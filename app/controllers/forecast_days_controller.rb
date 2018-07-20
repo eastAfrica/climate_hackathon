@@ -69,6 +69,6 @@ class ForecastDaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def forecast_day_params
-      params.require(:forecast_day).permit(:day_of_forecast, :early_warning_forecast_id, forecast_hours_attributes: [:disruption_level, :probability_of_occurence, :forecast_day_id, :_destroy])
+      params.require(:forecast_day).permit(:day_of_forecast, :early_warning_forecast_id, forecast_hours_attributes: [:disruption_level, :probability_of_occurence, :hour, :forecast_day_id, :_destroy])
     end
 end

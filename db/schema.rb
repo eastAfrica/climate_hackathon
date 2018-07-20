@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_221548) do
+ActiveRecord::Schema.define(version: 2018_07_20_232044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_221548) do
     t.bigint "forecast_day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "hour"
     t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
   end
 
