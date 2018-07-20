@@ -24,7 +24,32 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "districts", force: :cascade do |t|
+  create_table "disasters", force: :cascade do |t|
+    t.string "event"
+    t.integer "province_id"
+    t.integer "district_id"
+    t.integer "sector_id"
+    t.datetime "date_of_occurence"
+    t.string "location"
+    t.integer "deaths"
+    t.integer "injured"
+    t.integer "missing"
+    t.integer "houses_destroyed"
+    t.integer "houses_damaged"
+    t.integer "directly_affected"
+    t.string "indirectly_affected"
+    t.integer "relocated_people"
+    t.integer "evacuated_people"
+    t.integer "losses_usd"
+    t.integer "losses_local"
+    t.string "damages_crops_hectares"
+    t.integer "lost_cattle"
+    t.integer "damages_roads_meters"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    create_table "districts", force: :cascade do |t|
     t.string "name"
     t.integer "province_id"
     t.datetime "created_at", null: false
@@ -55,6 +80,11 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "weather_id"
+    t.integer "user_id"
+    t.string "status"
 
   create_table "provinces", force: :cascade do |t|
     t.string "name"
@@ -101,6 +131,12 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.jsonb "weather_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "services", "users"
