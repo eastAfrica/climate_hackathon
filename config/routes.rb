@@ -2,7 +2,6 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :disasters
-  resources :weathers
   resources :reports
   resources :sectors
   resources :districts

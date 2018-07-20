@@ -17,25 +17,26 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+
         <th>Name</th>
-    
+
 
             <th>District</th>
-            
+
       </tr>
     </thead>
 
     <tbody>
       <% @sectors.each do |sector| %>
         <%= content_tag :tr, id: dom_id(sector), class: dom_class(sector) do %>
-          
-            <td><%= link_to sector.name, sector %></td>
-          
 
-                      <td><%= sector.district_id %></td>
-          
-          
+            <td><%= link_to sector.name, sector %></td>
+
+                      <% district = District.find(sector.district_id) %>
+                      <td><%= link_to district.name, district  %></td>
+                      <!-- <td><%= sector.district_id %></td> -->
+
+
         <% end %>
       <% end %>
     </tbody>
