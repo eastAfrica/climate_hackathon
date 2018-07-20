@@ -1,0 +1,41 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Provinces</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_province_path, class: 'btn btn-primary' do %>
+    Add New Province
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Name</th>
+    
+
+            
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @provinces.each do |province| %>
+        <%= content_tag :tr, id: dom_id(province), class: dom_class(province) do %>
+          
+            <td><%= link_to province.name, province %></td>
+          
+
+          
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

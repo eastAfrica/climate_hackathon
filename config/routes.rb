@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :disasters
   resources :weathers
   resources :reports
+  resources :sectors
+  resources :districts
+  resources :provinces
   namespace :admin do
       resources :users
       resources :announcements

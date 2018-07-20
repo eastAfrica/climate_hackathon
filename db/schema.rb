@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_165900) do
+ActiveRecord::Schema.define(version: 2018_07_19_171734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2018_07_19_165900) do
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "long", precision: 10, scale: 6
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -77,6 +85,16 @@ ActiveRecord::Schema.define(version: 2018_07_19_165900) do
     t.integer "weather_id"
     t.integer "user_id"
     t.string "status"
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.integer "district_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

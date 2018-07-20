@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to districts_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Districts
+  <% end %>
+  <%= link_to edit_district_path(@district), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show district</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @district.name %></dd>
+
+  <dt>Province:</dt>
+  <dd><%= @district.province_id %></dd>
+
+  <dt>Point:</dt>
+  <dd><%= @district.point %></dd>
+
+  <dt>Point:</dt>
+  <dd><%= @district.point %></dd>
+
+</dl>

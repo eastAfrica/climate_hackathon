@@ -151,7 +151,9 @@ Devise.setup do |config|
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
 
-  # Invalidates all the remember me tokens when the user signs out.
+ config.secret_key = '99239400eaced91b06711de51be21060ace3832b06ffac3a42af3701ad2af6cf5b5fb7d6b2db1b7ce7d1d0385688c067916032aa03ea06fd0a1d9ccb465e2050'
+
+   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
 
   # If true, extends the user's remember period when remembered via cookie.
