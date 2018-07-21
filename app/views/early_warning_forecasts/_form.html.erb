@@ -1,47 +1,101 @@
-<%= form_with(model: early_warning_forecast, local: true) do |form| %>
-  <% if early_warning_forecast.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(early_warning_forecast.errors.count, "error") %> prohibited this early_warning_forecast from being saved:</h2>
-
-      <ul>
-      <% early_warning_forecast.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :district_id %>
-    <%= form.collection_select(:district_id, District.all, :id, :name,
-          {prompt: 'Select district'}, {class: 'selectors form-control'}) %>
-  </div>
-
-  <h3>Forecast days</h3>
-  <div id="days">
-    <%= form.fields_for :forecast_days do |forecast_day| %>
-      <%= render 'forecast_day_fields', f: forecast_day %>
-    <% end %>
-
-    <div class="links">
-      <%= link_to_add_association 'Add Days', form, :forecast_days %>
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <% if early_warning_forecast.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', early_warning_forecast, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+<div class="row">
+  <div class="col-md-7">
+    <div class="panel panel-default" style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px">
+      <div class="panel-heading">
+        early warning forecast
       </div>
-    <% end %>
+      <br>
+      <div class="panel-body">
+        <%= form_with(model: early_warning_forecast, local: true) do |form| %>
+          <% if early_warning_forecast.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(early_warning_forecast.errors.count, "error") %> prohibited this early_warning_forecast from being saved:</h2>
 
-    <%= form.submit class: 'btn btn-primary' %>
+              <ul>
+              <% early_warning_forecast.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-    <% if early_warning_forecast.persisted? %>
-      <%= link_to "Cancel", early_warning_forecast, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", early_warning_forecasts_path, class: "btn btn-link" %>
-    <% end %>
+          <div class="form-group">
+            <%= form.collection_select(:district_id, District.all, :id, :name,
+                  {prompt: 'Select district'}, {class: 'selectors form-control'}) %>
+          </div>
+          <hr>
+          <h4>Forecast days</h4>
+          <div id="days">
+            <%= form.fields_for :forecast_days do |forecast_day| %>
+              <%= render 'forecast_day_fields', f: forecast_day %>
+            <% end %>
+
+            <div class="new-wpr-links links row">
+              <%= link_to_add_association 'New Days', form, :forecast_days, class: "btn btn-primary-custom add-button col-xs-6 col-xs-offset-3" %>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <% if early_warning_forecast.persisted? %>
+              <div class="float-right">
+                <%= link_to 'Destroy', early_warning_forecast, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
+
+            <%= form.submit class: 'btn btn-primary' %>
+
+            <% if early_warning_forecast.persisted? %>
+              <%= link_to "Cancel", early_warning_forecast, class: "btn btn-link" %>
+            <% else %>
+              <%= link_to "Cancel", early_warning_forecasts_path, class: "btn btn-link" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="panel-footer">
+      </div>
+    </div>
+
   </div>
-<% end %>
+  <div class="col-md-5">
+    <div class="panel panel-default" style="padding-left: 20px; padding-bottom: 10px">
+      <div class="panel-heading">
+        <h6>Guide to potential disruption levels that may be experienced:</h6>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Disruption Levels</th>
+            </tr>
+          </thead>
+
+          <tbody style="font-size: 11px">
+            <tr>
+              <td bgcolor="gray"></td>
+              <td>Disruption not expected.</td>
+            </tr>
+            <tr>
+              <td bgcolor="yellow"></td>
+              <td>Flooding to road surfaces, localised agricultural areas, livestock in flood-prone areas may be at risk.</td>
+            </tr>
+            <tr>
+              <td bgcolor="orange"></td>
+              <td>Flooding of minor and some larger roads in valleys, extensive agricultural areas, possibility of livestock loss, localised flash flood, some
+              damage to rural housing.</td>
+            </tr>
+            <tr>
+              <td bgcolor="red"></td>
+              <td>Severe widespread flooding to major rivers and catchments, damage to and loss of housing, major landslides, loss of livestock and risk of loss
+              of human life and livelihoods.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
+      </div>
+    </div>
+  </div>
+</div>

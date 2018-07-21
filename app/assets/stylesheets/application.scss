@@ -28,6 +28,13 @@ body {
   font: normal Arial, sans-serif;
 }
 
+.panel {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px
+}
+
 .pagination > .active > span, .pagination > .active > span:hover {
    background-color: $accent-color;
    border-color: $accent-color;
