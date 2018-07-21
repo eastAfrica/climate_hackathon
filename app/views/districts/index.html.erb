@@ -1,6 +1,6 @@
 <div class="row content-header">
   <div class="col-sm-3">
-    <h1>Districts</h1>
+    <h2>Districts</h2>
   </div>
 
   <div class="col-sm-9 action-buttons text-right">
@@ -10,37 +10,33 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-9">
-    <div class="panel panel-defalt">
-      <div class="panel-header">
-        All Districts
-      </div>
-      <div class="panel-body">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Name</th>
-                <th>Province</th>
-                <th>Lat</th>
-                <th>Long</th>
-            </tr>
-          </thead>
+<div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-header" style="padding-left: 20px">
+      <p>All Districts</p>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+              <th>Province</th>
+              <th>Lat</th>
+              <th>Long</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <% @districts.each do |district| %>
-              <%= content_tag :tr, id: dom_id(district), class: dom_class(district) do %>
-                  <td><%= link_to district.name, district %></td>
-                  <td><%= district.province.name %></td>
-                  <td><%= district.lat %></td>
-                  <td><%= district.long %></td>
-              <% end %>
+        <tbody>
+          <% @districts.each do |district| %>
+            <%= content_tag :tr, id: dom_id(district), class: dom_class(district) do %>
+              <td><%= link_to district.name, district %></td>
+              <td><%= district.province.name %></td>
+              <td><%= district.lat %></td>
+              <td><%= district.long %></td>
             <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="panel-footer">
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
