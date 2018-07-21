@@ -2,7 +2,7 @@ module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     before_action :set_service
     before_action :set_user
-
+    
     attr_reader :service, :user
 
     def facebook

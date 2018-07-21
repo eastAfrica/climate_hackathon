@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_132515) do
+ActiveRecord::Schema.define(version: 2018_07_21_234606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_07_21_132515) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer "caller_id"
-    t.integer "report_id"
     t.string "audio_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -208,6 +207,7 @@ ActiveRecord::Schema.define(version: 2018_07_21_132515) do
     t.integer "sector_id"
     t.integer "district_id"
     t.string "phone_number"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
