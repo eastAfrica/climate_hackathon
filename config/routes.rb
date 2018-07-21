@@ -6,11 +6,19 @@ Rails.application.routes.draw do
   resources :sectors
   resources :districts
   resources :provinces
+
+  #resources :surveys
+  get 'surveys' => 'surveys#index'
+  get 'surveys/voice' => 'surveys#voice'
+  get 'surveys/sms' => 'surveys#sms'
+  post 'survey/after_record' => 'surveys#after_record'
+
   namespace :admin do
       resources :users
       resources :announcements
       resources :notifications
       resources :services
+      resources :surveys
 
       root to: "users#index"
     end

@@ -4,6 +4,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+
     @reports = Report.all
   end
 
@@ -24,17 +25,33 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
+        # account_sid = 'AC254f16a7c2ab5efd2304fc342bdbad86'
+        # auth_token = 'c885e1f40ec7d0b9d7b048c65a12365c'
+        # client = Twilio::REST::Client.new(account_sid, auth_token)
+        #
+        # from = '+18643629235 ' # Your Twilio number
+        # to = '+250734598922' # Your mobile phone number
+        #
+        # client.messages.create(
+        # from: from,
+        # to: to,
+        # body: "Test from rails code!"
+        # )
 
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
-      else
-        format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
-    end
+   
+
+
+    # @report = Report.new(report_params)
+    #
+    # respond_to do |format|
+    #   if @report.save
+    #     format.html { redirect_to @report, notice: 'Report was successfully created.' }
+    #     format.json { render :show, status: :created, location: @report }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @report.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /reports/1

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_171734) do
+ActiveRecord::Schema.define(version: 2018_07_20_221959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.string "announcement_type"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "source"
+    t.string "content"
+    t.string "form"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -88,6 +97,14 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.integer "body"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer "weather_id"
     t.integer "user_id"
@@ -115,6 +132,19 @@ ActiveRecord::Schema.define(version: 2018_07_19_171734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_services_on_user_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transcriptions", force: :cascade do |t|
+    t.integer "answer_id"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

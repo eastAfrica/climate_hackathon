@@ -6,7 +6,8 @@ class WeathersController < ApplicationController
   # GET /weathers
   # GET /weathers.json
   def index
-
+    easy = SMSEasy::Client.new
+    easy.deliver("5551234567", "verizon", "Hey!")
     puts "Open weatehr data -------------------------"
     puts @open_w_data
     @weathers = Weather.all
