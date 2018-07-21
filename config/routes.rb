@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :forecast_days
   resources :early_warning_forecasts
   resources :disasters
-  resources :weathers
   resources :reports
   resources :sectors
   resources :districts

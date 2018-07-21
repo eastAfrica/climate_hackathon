@@ -81,4 +81,11 @@ gem 'sidekiq', '~> 5.1', '>= 5.1.3'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
+<<<<<<< HEAD
 gem "cocoon"
+=======
+
+gem "select2-rails"
+
+gem 'open-weather'
+>>>>>>> Develop

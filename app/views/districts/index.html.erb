@@ -31,11 +31,13 @@
     <tbody>
       <% @districts.each do |district| %>
         <%= content_tag :tr, id: dom_id(district), class: dom_class(district) do %>
+            <% province = Province.find(district.province_id) %>
+            <td><%=  link_to district.name, district %></td>
 
-            <td><%= link_to district.name, district %></td>
 
+                      <!-- <td><%= district.province_id %></td> -->
+                      <td><%= link_to province.name, province %></td>
 
-                      <td><%= district.province_id %></td>
                       <td><%= district.lat %></td>
                       <td><%= district.long %></td>
 
