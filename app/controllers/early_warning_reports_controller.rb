@@ -14,6 +14,7 @@ class EarlyWarningReportsController < ApplicationController
 
   # GET /early_warning_reports/new
   def new
+    @recievers = User.all
     @early_warning_report = EarlyWarningReport.new
   end
 
@@ -25,21 +26,21 @@ class EarlyWarningReportsController < ApplicationController
   # POST /early_warning_reports.json
   def create
     @early_warning_report = EarlyWarningReport.new(early_warning_report_params)
-
+    puts " IN CREAEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe "+early_warning_report_params.to_s
     respond_to do |format|
       if @early_warning_report.save
-        account_sid = 'AC254f16a7c2ab5efd2304fc342bdbad86'
-        auth_token = 'c885e1f40ec7d0b9d7b048c65a12365c'
-        client = Twilio::REST::Client.new(account_sid, auth_token)
-
-        from = '+18643629235 ' # Your Twilio number
-        to = '+250734598922' # Your mobile phone number
-
-        client.messages.create(
-        from: from,
-        to: to,
-        body: "Test from rails code!"
-        )
+        # account_sid = 'AC254f16a7c2ab5efd2304fc342bdbad86'
+        # auth_token = 'c885e1f40ec7d0b9d7b048c65a12365c'
+        # client = Twilio::REST::Client.new(account_sid, auth_token)
+        #
+        # from = '+18643629235 ' # Your Twilio number
+        # to = '+250734598922' # Your mobile phone number
+        #
+        # client.messages.create(
+        # from: from,
+        # to: to,
+        # body: "Test from rails code!"
+        # )
         format.html { redirect_to @early_warning_report, notice: 'Early warning report was successfully created and SMS sent' }
         format.json { render :show, status: :created, location: @early_warning_report }
       else
@@ -81,6 +82,6 @@ class EarlyWarningReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def early_warning_report_params
-      params.require(:early_warning_report).permit(:early_warning_id, :sector_id, :level, :feedback_id, :reciever_id)
+      params.require(:early_warning_report).permit(:reciever_id, :early_warning_id, :sector_id, :level, :feedback_id )
     end
 end
