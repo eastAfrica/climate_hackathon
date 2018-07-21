@@ -37,21 +37,6 @@ class ReportsController < ApplicationController
         # to: to,
         # body: "Test from rails code!"
         # )
-
-   
-
-
-    # @report = Report.new(report_params)
-    #
-    # respond_to do |format|
-    #   if @report.save
-    #     format.html { redirect_to @report, notice: 'Report was successfully created.' }
-    #     format.json { render :show, status: :created, location: @report }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @report.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /reports/1
