@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to forecast_days_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Forecast_days
+  <% end %>
+  <%= link_to edit_forecast_day_path(@forecast_day), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show forecast_day</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Day of forecast:</dt>
+  <dd><%= @forecast_day.day_of_forecast %></dd>
+
+  <dt>Early warning forecast:</dt>
+  <dd><%= @forecast_day.early_warning_forecast %></dd>
+
+</dl>

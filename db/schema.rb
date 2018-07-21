@@ -68,6 +68,30 @@ ActiveRecord::Schema.define(version: 2018_07_20_221959) do
     t.decimal "long", precision: 10, scale: 6
   end
 
+  create_table "early_warning_forecasts", force: :cascade do |t|
+    t.integer "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forecast_days", force: :cascade do |t|
+    t.date "day_of_forecast"
+    t.bigint "early_warning_forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["early_warning_forecast_id"], name: "index_forecast_days_on_early_warning_forecast_id"
+  end
+
+  create_table "forecast_hours", force: :cascade do |t|
+    t.string "disruption_level"
+    t.string "probability_of_occurence"
+    t.bigint "forecast_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hour"
+    t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
+  end
+
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -173,5 +197,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_221959) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "forecast_days", "early_warning_forecasts"
+  add_foreign_key "forecast_hours", "forecast_days"
   add_foreign_key "services", "users"
 end
