@@ -6,10 +6,18 @@ class SurveysController < ApplicationController
     @survey = Survey.includes(:questions).first
   end
 
+  def new
+    @feedback = Feedback.new
+  end
+
   def after_record
       recording_url = params['RecordingUrl']
       caller_id = params['From']
-      puts "---------------------------------------- uRRRRRRRRRRRRRRl is  " + url
+      feedback = Feedback.new
+      feedback.caller_id = caller_id
+      feedback.audio_url = recording_url
+      feedback.save
+      puts "---------------------------------------- SSSaavvveeedd  "
   end
 
   def voice
@@ -18,8 +26,11 @@ class SurveysController < ApplicationController
   end
 
   def sms
-    user_response = params[:Body]
+    user_response = params[:RecordingUrl]
     from          = params[:From]
+
+
+
     render xml: SMS::ReplyProcessor.process(user_response, from, cookies)
   end
 
@@ -29,12 +40,12 @@ class SurveysController < ApplicationController
     Twilio::TwiML::VoiceResponse.new do |r|
         r.say(message: 'Hello. Please leave a feedback for the disaster.')
         puts '--------------------------------- Recording started ---------------------  '
-        r.record action:  "/survey/after_record"
+        r.record action:  "/feedbacks_save_from_ngork/"
         # puts 'The value of record is  -------------------------------------------------  '+a
         r.hangup
         puts '--------------------------------- Recording Ended ---------------------  '
 
-    end.to_s
+    end
     end
 
 

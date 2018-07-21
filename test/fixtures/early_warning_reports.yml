@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  early_warning_id: 
+  sector_id: 
+  level: 
+  feedback_id: 
+  reciever_id: 1
+
+two:
+  early_warning_id: 
+  sector_id: 
+  level: 
+  feedback_id: 
+  reciever_id: 1

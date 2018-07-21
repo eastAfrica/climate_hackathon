@@ -1,0 +1,54 @@
+<%= form_with(model: early_warning_report, local: true) do |form| %>
+  <% if early_warning_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(early_warning_report.errors.count, "error") %> prohibited this early_warning_report from being saved:</h2>
+
+      <ul>
+      <% early_warning_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :early_warning_id %>
+    <%= form.text_field :early_warning_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sector_id %>
+    <%= form.text_field :sector_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :level %>
+    <%= form.text_field :level, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :feedback_id %>
+    <%= form.text_field :feedback_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :reciever_id %>
+    <%= form.number_field :reciever_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if early_warning_report.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', early_warning_report, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if early_warning_report.persisted? %>
+      <%= link_to "Cancel", early_warning_report, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", early_warning_reports_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
