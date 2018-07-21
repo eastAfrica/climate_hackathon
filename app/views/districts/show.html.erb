@@ -1,26 +1,36 @@
-<div class="page-header">
-  <%= link_to districts_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    All Districts
-  <% end %>
-  <%= link_to edit_district_path(@district), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show district</h1>
+<div class="row content-header">
+  <div class="col-sm-6 action-buttons text-left">
+    <%= link_to districts_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      All Districts
+    <% end %>
+  </div>
+
+  <div class="col-sm-6 action-buttons text-right">
+    <%= link_to edit_district_path(@district), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Details
+    <% end %>
+  </div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @district.name %></dd>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-header" style="padding-left: 20px; padding-top: 10px">
+        <h5>Name: <%= @district.name %></h5>
+        <p>Province: <%= @district.province.name %></p>
+        <p>Latitude: <%= @district.lat %></p>
+        <p>Longitude: <%= @district.long %><p>
+      </div>
 
-  <dt>Province:</dt>
-  <dd><%= @district.province_id %></dd>
+      <div class="panel-body" style="padding-left: 20px">
+        <p>Located in central Kigali, <%= @district.name %> is ...........</p>
+      </div>
 
-  <dt>lat:</dt>
-  <dd><%= @district.lat %></dd>
-
-  <dt>long:</dt>
-  <dd><%= @district.long %></dd>
-
-</dl>
+      <div class="panel-footer" style="padding-left: 20px; padding-bottom: 10px">
+        <%= link_to "Website", "http://www.gasabo.gov.rw/index.php?id=39" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -64,11 +64,7 @@ gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 gem "cocoon"
 gem "select2-rails"
-
-
-gem 'open-weather'
 gem 'sms-easy'
-
 gem 'twilio-ruby'
 
 
@@ -94,4 +90,3 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-

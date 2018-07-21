@@ -1,34 +1,36 @@
-<%= form_with(model: province, local: true) do |form| %>
-  <% if province.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(province.errors.count, "error") %> prohibited this province from being saved:</h2>
+<div class="col-md-9">
+  <%= form_with(model: province, local: true) do |form| %>
+    <% if province.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(province.errors.count, "error") %> prohibited this province from being saved:</h2>
 
-      <ul>
-      <% province.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <% if province.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', province, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+        <ul>
+        <% province.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
 
-    <%= form.submit class: 'btn btn-primary' %>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-    <% if province.persisted? %>
-      <%= link_to "Cancel", province, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", provinces_path, class: "btn btn-link" %>
-    <% end %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <% if province.persisted? %>
+        <div class="float-right">
+          <%= link_to 'Destroy', province, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+
+      <%= form.submit class: 'btn btn-primary' %>
+
+      <% if province.persisted? %>
+        <%= link_to "Cancel", province, class: "btn btn-link" %>
+      <% else %>
+        <%= link_to "Cancel", provinces_path, class: "btn btn-link" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -7,6 +7,7 @@
 @import "bootstrap";
 @import "sticky-footer";
 @import "announcements";
+@import "colors";
 
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
@@ -20,4 +21,382 @@
 body > .alert {
   margin-bottom: 0;
 
+}
+
+body {
+  background-color: $primary-color;
+  font: normal Arial, sans-serif;
+}
+
+.pagination > .active > span, .pagination > .active > span:hover {
+   background-color: $accent-color;
+   border-color: $accent-color;
+}
+
+.pagination > li > a , .pagination > li > a:hover {
+  color: $accent-color;
+}
+
+.content-header {
+  padding-bottom: 20px;
+}
+
+.table-headers {
+  background-color: #F5F5F5;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+
+#login_links{
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.shifttime{
+  display: block;
+}
+
+#calendar_link{
+  padding-top: 25px;
+}
+
+.navbar-default {
+    background-color: $nav-bar-color;
+    height: 80px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: $secondary-color;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: $primary-color;
+}
+
+.navbar-right {
+  padding-top: 15px;
+}
+
+.panel-default{
+  border: 1px solid #eaeaea;
+  border-width: 2px;
+}
+
+thead {
+  background-color: #F5F5F5;
+}
+
+//panel-default
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color: $primary-color;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	  margin-bottom: -9999px;
+	  padding-top: 9999px;
+	  padding-bottom: 9999px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    border-right: 1px solid $default-border-color;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: $accent-color;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: $secondary-color;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#job_queue_user_id{
+    display: none;
+}
+
+span.select2-container {
+  width: 100% !important;
+}
+
+.atlwdg-trigger {
+  background-color:$accent-color !important;
+}
+
+.action-buttons {
+    margin-top: 15px;
+    float: right;
+}
+
+.main-frame {
+  margin-top: 7%;
+}
+
+.divider {
+  height: 20px;
+}
+
+.card {
+    padding: 10px;
+    height: 130px;
+}
+
+.with-borders {
+  border: 1px solid $default-border-color;
+}
+
+.bordered-right {
+  border-right: 1px solid $default-border-color;
+}
+
+.big-text {
+  font-size: 250%;
+  color: $accent-color;
+}
+
+.panel.panel-default {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  border-radius: 0px !important;
+  border: 0px !important;
+}
+.panel-heading {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    background-color: $panel-heading-color !important;
+}
+
+.ui-datepicker td span, .ui-datepicker td {
+  height: 100%;
+}
+
+input.description-field {
+  min-height: 100px;
+}
+.datetime-select select{
+  display: inline;
+  width: 18%;
+}
+.datetime-select select:last-child {
+  width: 21%;
+}
+
+#notice-board {
+  margin-top: 30px;
+}
+
+.nested-fields {
+  border: 1px solid #DDDDDD;
+  margin-bottom: 20px;
+}
+
+.nested-panel-heading {
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.nested-table-fields td div.form-group {
+  margin: 0 !important;
+}
+
+.section-headers {
+  margin-top: 40px;
+}
+
+.nested-panel, .questions-table {
+  margin: 20px;
+}
+
+.new-wpr-links {
+  padding: 40px;
+}
+
+.btn-primary-custom {
+  border: 1px solid $accent-color;
+  background-color: transparent;
+}
+
+.btn-primary-custom:hover {
+  background-color: $accent-color;
+  color: #FFFFFF;
+}
+
+.btn-danger-custom {
+  border: 1px solid $color-danger;
+  background-color: transparent;
+  color: $color-danger;
+}
+
+.btn-danger-custom:hover {
+  background-color: $color-danger;
+  color: #FFFFFF;
+}
+
+#calendar thead {
+  background-color: transparent !important;
+}
+
+div.fc-left h2 {
+  font-size: 20px;
+}
+
+th.fc-day-header.fc-widget-header{
+  background-color: $default-border-color;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.custom-select2 {
+  width: 100%;
+  display: block;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+  color: #444;
+  height: 28px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  outline: 0;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(top, white 50%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, white 50%, #eeeeee 100%);
+  background-image: linear-gradient(to bottom, white 50%, #eeeeee 100%);
+  background-repeat: repeat-x;
+}
+
+.no-history {
+  min-height: 200px;
+  text-align: center;
+  margin-top: 190px;
+}
+
+.settings-btn {
+  font-family: Arial;
+  color: $accent-color;
+  background-color: none;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+.settings-btn:hover {
+  text-decoration: none;
+  color: $secondary-color;
+}
+
+#settings {
+  padding-left: 10px;
+}
+
+.fill-height {
+  height: 100%;
+}
+
+.verticaline {
+  border-right: 1px solid $default-border-color !important;
+  height: 75%;
+  margin-top: 30px;
+
+}
+
+.fancy-texts {
+  color: $accent-color;
+}
+
+
+.verticle-center {
+    padding-top: 10%;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+}
+
+.badge-success{
+  background-color: #ADFF2F;
+}
+
+.badge-warning{
+  background-color: #CD5C5C;
 }
