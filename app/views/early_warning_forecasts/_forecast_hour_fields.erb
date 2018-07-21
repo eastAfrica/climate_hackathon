@@ -1,14 +1,14 @@
-<div class="nested-fields col-sx-4">
+<div class="nested-fields">
   <div class="form-group">
     <%= f.number_field :hour, class: 'form-control', placeholder: 'hour' %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :disruption_level, class: 'form-control', placeholder: 'disruption level' %>
+    <%= f.select(:disruption_level, @levels, allow_blank: true, prompt: 'Select disruption level', class: 'form-control') %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :probability_of_occurence, class: 'form-control', placeholder: 'probability of occurence' %>
+    <%= f.select(:probability_of_occurence, @probability, allow_blank: true, prompt: 'Select probability of occurence', class: 'form-control') %>
   </div>
 
   <div class="nested-panel-heading text-right">
