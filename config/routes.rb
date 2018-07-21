@@ -1,6 +1,12 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  post '/feedbacks_save_from_ngork/' => 'feedbacks#save_from_ngork'
+  get '/feedbacks_save_from_ngork/' => 'feedbacks#save_from_ngork'
+
+
+  resources :feedbacks
+  resources :early_warning_reports
   resources :forecast_hours
   resources :forecast_days
   resources :early_warning_forecasts
@@ -9,11 +15,23 @@ Rails.application.routes.draw do
   resources :sectors
   resources :districts
   resources :provinces
+
+  #resources :surveys
+  get 'surveys' => 'surveys#index'
+  get 'surveys/voice' => 'surveys#voice'
+  get 'surveys/sms' => 'surveys#sms'
+  post 'feedbacks/after_record' => 'feedbacks#after_record'
+
+
+
+
+
   namespace :admin do
       resources :users
       resources :announcements
       resources :notifications
       resources :services
+      resources :surveys
 
       root to: "users#index"
     end

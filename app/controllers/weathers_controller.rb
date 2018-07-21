@@ -1,12 +1,14 @@
 
 
 class WeathersController < ApplicationController
+  
   before_action :set_weather, only: [:show, :edit, :update, :destroy]
 
   # GET /weathers
   # GET /weathers.json
   def index
-
+    easy = SMSEasy::Client.new
+    easy.deliver("5551234567", "verizon", "Hey!")
     puts "Open weatehr data -------------------------"
     puts @open_w_data
     @weathers = Weather.all

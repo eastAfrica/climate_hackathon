@@ -22,6 +22,18 @@
       </div>
 
       <div class="form-group">
+        <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Phone number' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :sector_id, class: 'form-control', placeholder: 'Sector id' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :district_id, class: 'form-control', placeholder: 'District id' %>
+      </div>
+
+      <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
       </div>
     <% end %>

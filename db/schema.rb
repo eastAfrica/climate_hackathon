@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_232044) do
+ActiveRecord::Schema.define(version: 2018_07_21_132515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2018_07_20_232044) do
     t.string "announcement_type"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "source"
+    t.string "content"
+    t.string "form"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +70,24 @@ ActiveRecord::Schema.define(version: 2018_07_20_232044) do
 
   create_table "early_warning_forecasts", force: :cascade do |t|
     t.integer "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "early_warning_reports", force: :cascade do |t|
+    t.integer "early_warning_id"
+    t.integer "sector_id"
+    t.string "level"
+    t.integer "feedback_id"
+    t.integer "reciever_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "caller_id"
+    t.integer "report_id"
+    t.string "audio_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -112,6 +139,14 @@ ActiveRecord::Schema.define(version: 2018_07_20_232044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.integer "body"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer "weather_id"
     t.integer "user_id"
@@ -141,6 +176,19 @@ ActiveRecord::Schema.define(version: 2018_07_20_232044) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
+  create_table "surveys", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transcriptions", force: :cascade do |t|
+    t.integer "answer_id"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -157,6 +205,9 @@ ActiveRecord::Schema.define(version: 2018_07_20_232044) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sector_id"
+    t.integer "district_id"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
