@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to forecast_hours_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Forecast_hours
+  <% end %>
+  <%= link_to edit_forecast_hour_path(@forecast_hour), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show forecast_hour</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Disruption level:</dt>
+  <dd><%= @forecast_hour.disruption_level %></dd>
+
+  <dt>Probability of occurence:</dt>
+  <dd><%= @forecast_hour.probability_of_occurence %></dd>
+
+  <dt>Forecast day:</dt>
+  <dd><%= @forecast_hour.forecast_day %></dd>
+
+</dl>

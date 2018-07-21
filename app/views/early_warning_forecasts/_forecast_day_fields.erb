@@ -1,0 +1,15 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.label :day_of_forecast %>
+    <%= f.date_select :day_of_forecast, class: 'form-control' %>
+  </div>
+
+  <%= f.fields_for :forecast_hours do |forecast_hour| %>
+    <%= render 'forecast_hour_fields', f: forecast_hour %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'Add hours', f, :forecast_hours %>
+  </div>
+
+  <%= link_to_remove_association "Remove day", f %>
+</div>

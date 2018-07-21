@@ -18,5 +18,5 @@
 //= require local-time
 //= require activestorage
 //= require turbolinks
-//= require select2 
+//= require cocoon
 //= require_tree .

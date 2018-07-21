@@ -1,0 +1,44 @@
+<%= form_with(model: forecast_hour, local: true) do |form| %>
+  <% if forecast_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(forecast_hour.errors.count, "error") %> prohibited this forecast_hour from being saved:</h2>
+
+      <ul>
+      <% forecast_hour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :disruption_level %>
+    <%= form.text_field :disruption_level, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :probability_of_occurence %>
+    <%= form.text_field :probability_of_occurence, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :forecast_day_id %>
+    <%= form.text_field :forecast_day_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if forecast_hour.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', forecast_hour, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if forecast_hour.persisted? %>
+      <%= link_to "Cancel", forecast_hour, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", forecast_hours_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
