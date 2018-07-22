@@ -29,8 +29,7 @@ class EarlyWarningReportsController < ApplicationController
     puts " IN CREAEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe "+early_warning_report_params.to_s
     respond_to do |format|
       if @early_warning_report.save
-        # account_sid = 'AC254f16a7c2ab5efd2304fc342bdbad86'
-        # auth_token = 'c885e1f40ec7d0b9d7b048c65a12365c'
+        
         # client = Twilio::REST::Client.new(account_sid, auth_token)
         #
         # from = '+18643629235 ' # Your Twilio number
