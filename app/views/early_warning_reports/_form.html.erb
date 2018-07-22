@@ -32,9 +32,12 @@
   <div class="form-group">
     <%= form.label :reciever_id %>
     <br/>
-    <%= form.select('reciever_id', User.all.map.collect {|p| [ p.name, p.id ] },
-                                               { :prompt => "Please select"},
-                                               { :multiple => true, :size => 5 })%>
+    <%= form.collection_check_boxes :recieviers, @recievers, :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-group">
