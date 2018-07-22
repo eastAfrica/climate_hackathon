@@ -6,6 +6,7 @@
 5. Check if SMS is sent, recieved or sent 
 6. All buttons and Lables customization
 7. UI colors, fonts .. customization
+8. There is an issue with disasters form 
 
 # README
 
