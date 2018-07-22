@@ -20,9 +20,10 @@
 
 
             <th>Caller</th>
-            <th>Audio url</th>
+            <th>Date</th>
+            <th>Details</th>
 
-          <th></th>
+
 
       </tr>
     </thead>
@@ -33,16 +34,19 @@
 
 
                       <td><%= feedback.caller_id %></td>
-                      <td><%= feedback.audio_url %></td>
-                      <a href="javascript:void(0)" id="playsound">At Station</a>
+                      <td><%= feedback.created_at %></td>
+                      <!-- <td><% complete_url = "https://api.twilio.com/2010-04-01/Accounts/"+
+                                          ENV["pusher_app_id"]+"/Recordings/"+feedback.audio_url+".wav" %>
+                        <a href="javascript:void(0)" id="playsound" data-no-turbolink="false" >Play Audio feedback</a>
 
-                      <audio id="sound_effect" class="audio_player" preload="auto">
-                          <source src="http://www.villagegeek.com/downloads/webwavs/alrighty.wav" type="audio/wav">
-                      </audio>
+                        <audio id="sound_effect" class="audio_player" preload="auto">
+                            <source src='<%= complete_url %>' type="audio/wav">
+                        </audio>
+                          <%= complete_url%>
+                      </td> -->
 
 
-
-            <td><%= link_to 'Show', feedback %></td>
+            <td><%= link_to  'Go to Details', feedback ,data: { turbolinks: false } %></td>
 
         <% end %>
       <% end %>

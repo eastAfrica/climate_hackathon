@@ -22,12 +22,14 @@ class FeedbacksController < ApplicationController
   end
 
   def after_record
-      recording_url = params['RecordingUrl']
+      recording_url = params['RecordingSid']
       caller_id = params['From']
+      puts '---------------------------------------- '+caller_id
+      puts '---------------------------------------- '+caller_id[3..-1]
+      caller = User.where(phone_number: caller_id[3..-1])[0]
       @feedback = Feedback.new
-      @feedback.caller_id = caller_id
+      @feedback.caller_id = caller.name
       @feedback.audio_url = recording_url
-      @feedback.report_id = 1
       @feedback.save
       # data = {'recording_url': recording_url,'caller_id': caller_id , 'report_id':1}
       #
@@ -41,9 +43,14 @@ class FeedbacksController < ApplicationController
 
   def save_from_ngork
     data = params#['data']
-    recording_url = data['RecordingUrl']
+    recording_url = data['RecordingSid']
     caller_id = data['From']
-    @feedback = Feedback.new(:caller_id => 1, :report_id => 1, :audio_url => recording_url)
+    puts '---------------------------------------- '+caller_id
+    puts '---------------------------------------- '+caller_id[3..-1]
+    caller = User.where(phone_number: caller_id[3..-1])[0]
+
+    caller = User.where(phone_number: caller_id[3..-1])[0]
+    @feedback = Feedback.new(:caller_id => caller.name,  :audio_url => recording_url)
     respond_to do |format|
       if @feedback.save
         format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
@@ -120,6 +127,6 @@ class FeedbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:caller_id, :report_id, :audio_url)
+      params.require(:feedback).permit(:caller_id, :audio_url)
     end
 end
