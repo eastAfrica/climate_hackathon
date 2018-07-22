@@ -15,7 +15,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-7">
     <div class="panel panel-default">
       <div class="panel-header">
         <h3>Planning forecast for <%= @early_warning_forecast.district.name %> prepared on <%= @early_warning_forecast.created_at.to_formatted_s(:long) %></h3>
@@ -60,6 +60,47 @@
       </div>
       <div class="panel-footer">
         <p>Report prepared by: </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <div class="panel panel-default" style="padding-left: 20px; padding-bottom: 10px">
+      <div class="panel-heading">
+        <h6>Guide to potential disruption levels that may be experienced:</h6>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Disruption Levels</th>
+            </tr>
+          </thead>
+
+          <tbody style="font-size: 11px">
+            <tr>
+              <td bgcolor="gray"></td>
+              <td>Disruption not expected.</td>
+            </tr>
+            <tr>
+              <td bgcolor="yellow"></td>
+              <td>Flooding to road surfaces, localised agricultural areas, livestock in flood-prone areas may be at risk.</td>
+            </tr>
+            <tr>
+              <td bgcolor="orange"></td>
+              <td>Flooding of minor and some larger roads in valleys, extensive agricultural areas, possibility of livestock loss, localised flash flood, some
+              damage to rural housing.</td>
+            </tr>
+            <tr>
+              <td bgcolor="red"></td>
+              <td>Severe widespread flooding to major rivers and catchments, damage to and loss of housing, major landslides, loss of livestock and risk of loss
+              of human life and livelihoods.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
       </div>
     </div>
   </div>

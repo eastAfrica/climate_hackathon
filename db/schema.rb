@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2018_07_22_135018) do
     t.bigint "forecast_day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "hour"
+    t.string "hour"
     t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
   end
 
