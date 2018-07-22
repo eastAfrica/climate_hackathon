@@ -18,33 +18,48 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-header">
+        <h3>Planning forecast for <%= @early_warning_forecast.district.name %> prepared on <%= @early_warning_forecast.created_at.to_formatted_s(:long) %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Early Warning Forecast <%= @early_warning_forecast.district.name %> prepared on <%= @early_warning_forecast.created_at.to_formatted_s(:long) %></th>
+
             </tr>
           </thead>
 
-          <tbody style="font-size: 11px">
-            <tr>
-              <td></td>
-              <td>Disruption not expected.</td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
+          <tbody>
+            <% @forecastdays.each do |forecastday| %>
+              <tr>
+                <td>
+                  <%= forecastday.day_of_forecast %>
+                </td>
+                <td>
+                    <table class="table table-bordered" style="font-size: 11px">
+                      <thead>
+                        <tr>
+                          <th>Hours</th>
+                          <th>Disruption level</th>
+                          <th>Probability</th>
+                        </tr>
+                      </thead>
+
+                  <% forecastday.forecast_hours.each do |fh| %>
+                      <tbody>
+                        <td><%= fh.hour %></td>
+                        <td><%= fh.disruption_level %></td>
+                        <td><%= fh.probability_of_occurence %><br></td>
+                      </tbody>
+                  <% end %>
+                    </table>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
       <div class="panel-footer">
+        <p>Report prepared by: </p>
       </div>
     </div>
   </div>

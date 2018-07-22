@@ -10,17 +10,20 @@ class EarlyWarningForecastsController < ApplicationController
   # GET /early_warning_forecasts/1
   # GET /early_warning_forecasts/1.json
   def show
+    @forecastdays = @early_warning_forecast.forecast_days
   end
 
   # GET /early_warning_forecasts/new
   def new
     @early_warning_forecast = EarlyWarningForecast.new
     @levels = ['Grey', 'Yellow', 'Orange', 'Red']
-    @probability = ['<15%', '>15% and <50%','≥50% and <85%','≥85%' ]
+    @probability = ['0 - <15%', '>15% - <50%','≥50% - <85%','≥85% - <100' ]
   end
 
   # GET /early_warning_forecasts/1/edit
   def edit
+    @levels = ['Grey', 'Yellow', 'Orange', 'Red']
+    @probability = ['0 - <15%', '>15% - <50%','≥50% - <85%','≥85% - <100' ]
   end
 
   # POST /early_warning_forecasts
@@ -71,6 +74,6 @@ class EarlyWarningForecastsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def early_warning_forecast_params
-      params.require(:early_warning_forecast).permit(:district_id, forecast_days_attributes: [:day_of_forecast, :early_warning_forecast_id, :_destroy, forecast_hours_attributes: [:disruption_level, :probability_of_occurence, :hour, :forecast_day_id, :_destroy]])
+      params.require(:early_warning_forecast).permit(:district_id, forecast_days_attributes: [:id, :day_of_forecast, :early_warning_forecast_id, :_destroy, forecast_hours_attributes: [:id, :disruption_level, :probability_of_occurence, :hour, :forecast_day_id, :_destroy]])
     end
 end
