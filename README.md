@@ -1,7 +1,5 @@
 # Sunday Tasks
 
-1. Reporting to many people with SMS 
-3. Clean up Complex UI in the ealry warning 
 4. Clean up feedback form , get feedback per sectors
 5. Add early warning for districts to show people 
 
