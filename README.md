@@ -1,6 +1,4 @@
 # Sunday Tasks 
-1. Remove report ID
-2. Complex UI, early warning hours to time Value
 3. Modify early warning report UI 
 4. Feedback UI
 5. District -add forecast specific to district
