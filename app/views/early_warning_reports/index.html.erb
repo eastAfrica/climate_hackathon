@@ -28,7 +28,7 @@
           <% @early_warning_reports.each do |early_warning_report| %>
             <%= content_tag :tr, id: dom_id(early_warning_report), class: dom_class(early_warning_report) do %>
 
-              <td><%= early_warning_report.try(:sector).try(:name) %></td>
+              <td><%= early_warning_report.sector_id %></td>
               <td><%= early_warning_report.level %></td>
               <td>
                 <% array_of_rec = early_warning_report.recieviers.scan(/\d/).map(&:to_s) %>
@@ -38,7 +38,7 @@
                   <br/>
                 <% end %>
               </td>
-              <td><p>Sent</p></td>
+              <td><p> <%=early_warning_report.sms_status%></p></td>
 
               <td><%= link_to 'Show', early_warning_report %></td>
 

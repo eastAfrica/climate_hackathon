@@ -1,11 +1,15 @@
 class EarlyWarningReportsController < ApplicationController
   before_action :set_early_warning_report, only: [:show, :edit, :update, :destroy]
 
+
+  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!
+
   # GET /early_warning_reports
   # GET /early_warning_reports.json
   def index
     @early_warning_reports = EarlyWarningReport.all
-    @recievers = User.all
+    @recieviers = User.all
   end
 
   # GET /early_warning_reports/1
@@ -15,13 +19,13 @@ class EarlyWarningReportsController < ApplicationController
 
   # GET /early_warning_reports/new
   def new
-    @recievers = User.all
+    @recieviers = User.all
     @early_warning_report = EarlyWarningReport.new
   end
 
   # GET /early_warning_reports/1/edit
   def edit
-    @recievers = User.all
+    # @recievers = User.all
   end
 
 
@@ -29,6 +33,7 @@ class EarlyWarningReportsController < ApplicationController
   # POST /early_warning_reports.json
   def create
     @early_warning_report = EarlyWarningReport.new(early_warning_report_params)
+    @early_warning_report.sms_status = 'Sending'
     recievers = early_warning_report_params['recieviers']
     level = early_warning_report_params['level']
     respond_to do |format|
@@ -56,6 +61,10 @@ class EarlyWarningReportsController < ApplicationController
         format.json { render json: @early_warning_report.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def sms_call_back
+      puts '55555555555555555555555555555555555555555555 feed back sms '+ early_warning_report_params.to_s
   end
 
   # DELETE /early_warning_reports/1
@@ -87,7 +96,8 @@ class EarlyWarningReportsController < ApplicationController
         client.messages.create(
         from: from,
         to: '+25'+rec.phone_number,
-        body: "Early # WARNING: in your sector! " + level
+        body: "Early # WARNING: in your sector! " + level,
+        status_callback: "http://942c2b0f.ngrok.io/feedbacks_sms_status/"
         )
       end
     end
