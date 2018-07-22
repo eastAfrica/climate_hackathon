@@ -3,10 +3,9 @@
 2. Feedback UI
 3. District -add forecast specific to district
 4. Sector -add Feedback sector level
-5. Check if SMS is sent, recieved or sent 
-6. All buttons and Lables customization
-7. UI colors, fonts .. customization
-8. There is an issue with disasters form 
+5. All buttons and Lables customization
+6. UI colors, fonts .. customization
+7. There is an issue with disasters form 
 
 # README
 
