@@ -21,6 +21,24 @@ class FeedbacksController < ApplicationController
     render xml: SMS::ReplyProcessor.process(user_response, from, cookies)
   end
 
+  def sms_status
+    puts '55555555555555555555555555555555555555555555 feed back sms '+ params.to_s
+
+    caller_id = params['To']
+    caller_ = User.where(phone_number: caller_id[3..-1])[0]
+
+    early_warning_report = EarlyWarningReport.order("created_at DESC").where("recieviers like ?" , "%"+caller_.id.to_s+"%")[0]
+    early_warning_report.sms_status = params['SmsStatus']
+    early_warning_report.save
+    # end
+
+
+    respond_to do |format|
+        format.html { redirect_to '/early_warning_reports', notice: 'Message Delivered.' }
+        format.json { render :show, status: :ok }
+    end
+  end
+
   def after_record
       recording_url = params['RecordingSid']
       caller_id = params['From']
