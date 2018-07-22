@@ -1,12 +1,11 @@
 # Sunday Tasks 
-3. Modify early warning report UI 
-4. Feedback UI
-5. District -add forecast specific to district
-6. Sector -add Feedback sector level
-7. Check if SMS is sent, recieved or sent 
-8. Play audio in feedback
-9. All buttons and Lables customization
-10. UI colors, fonts .. customization
+1. Modify early warning report UI 
+2. Feedback UI
+3. District -add forecast specific to district
+4. Sector -add Feedback sector level
+5. Check if SMS is sent, recieved or sent 
+6. All buttons and Lables customization
+7. UI colors, fonts .. customization
 
 # README
 
