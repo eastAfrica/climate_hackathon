@@ -1,7 +1,10 @@
-# Sunday Tasks
-
-4. Clean up feedback form , get feedback per sectors
-5. Add early warning for districts to show people 
+# Sunday Tasks 
+1. Remove report ID
+2. Complex UI, early warning hours to time Value
+3. Modify early warning report UI 
+4. Feedback UI
+5. District -add forecast specific to district
+6. Sector -add Feedback sector level
 
 
 # README
