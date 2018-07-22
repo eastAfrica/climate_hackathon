@@ -1,0 +1,42 @@
+<div class="row content-header">
+  <div class="col-sm-6">
+    <h2>Early warning forecast</h2>
+  </div>
+
+  <div class="col-sm-6 action-buttons text-right">
+    <%= link_to new_early_warning_forecast_path, class: "btn btn-primary add-button" do %>
+      <small>   <i class="fa fa-plus"></i> Add New Early warning forecast </small>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-header">
+        <h4>All Reported Forecasts</h4>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>District</th>
+              <th>Date created</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @early_warning_forecasts.each do |early_warning_forecast| %>
+              <%= content_tag :tr, id: dom_id(early_warning_forecast), class: dom_class(early_warning_forecast) do %>
+                  <td><%= link_to early_warning_forecast.district.name, early_warning_forecast  %></td>
+                  <td><%= early_warning_forecast.created_at.to_formatted_s(:long) %>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
+      </div>
+    </div>
+  </div>
+</div>

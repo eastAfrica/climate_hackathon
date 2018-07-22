@@ -1,0 +1,40 @@
+<div class="row content-header">
+  <div class="col-sm-3">
+    <h2>Sectors</h2>
+  </div>
+
+  <div class="col-sm-9 action-buttons text-right">
+    <%= link_to new_sector_path, class: "btn btn-primary add-button" do %>
+      <small>   <i class="fa fa-plus"></i> Create Sector </small>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-header" style="padding-left: 20px">
+      <h3>All Sectors</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+              <th>District</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @sectors.each do |sector| %>
+            <%= content_tag :tr, id: dom_id(sector), class: dom_class(sector) do %>
+                <td><%= link_to sector.name, sector %></td>
+                <td><%= sector.district.name %></td>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+    </div>
+  </div>
+</div>

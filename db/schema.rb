@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_131939) do
+ActiveRecord::Schema.define(version: 2018_07_21_234606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,91 @@ ActiveRecord::Schema.define(version: 2018_07_19_131939) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "source"
+    t.string "content"
+    t.string "form"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "disasters", force: :cascade do |t|
+    t.string "event"
+    t.integer "province_id"
+    t.integer "district_id"
+    t.integer "sector_id"
+    t.datetime "date_of_occurence"
+    t.string "location"
+    t.integer "deaths"
+    t.integer "injured"
+    t.integer "missing"
+    t.integer "houses_destroyed"
+    t.integer "houses_damaged"
+    t.integer "directly_affected"
+    t.string "indirectly_affected"
+    t.integer "relocated_people"
+    t.integer "evacuated_people"
+    t.integer "losses_usd"
+    t.integer "losses_local"
+    t.string "damages_crops_hectares"
+    t.integer "lost_cattle"
+    t.integer "damages_roads_meters"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "long", precision: 10, scale: 6
+  end
+
+  create_table "early_warning_forecasts", force: :cascade do |t|
+    t.integer "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "early_warning_reports", force: :cascade do |t|
+    t.integer "early_warning_id"
+    t.integer "sector_id"
+    t.string "level"
+    t.integer "feedback_id"
+    t.integer "reciever_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "caller_id"
+    t.string "audio_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forecast_days", force: :cascade do |t|
+    t.date "day_of_forecast"
+    t.bigint "early_warning_forecast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["early_warning_forecast_id"], name: "index_forecast_days_on_early_warning_forecast_id"
+  end
+
+  create_table "forecast_hours", force: :cascade do |t|
+    t.string "disruption_level"
+    t.string "probability_of_occurence"
+    t.bigint "forecast_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hour"
+    t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -47,6 +132,35 @@ ActiveRecord::Schema.define(version: 2018_07_19_131939) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.integer "body"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "weather_id"
+    t.integer "user_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.integer "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.bigint "user_id"
     t.string "provider"
@@ -59,6 +173,19 @@ ActiveRecord::Schema.define(version: 2018_07_19_131939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_services_on_user_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transcriptions", force: :cascade do |t|
+    t.integer "answer_id"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,9 +204,21 @@ ActiveRecord::Schema.define(version: 2018_07_19_131939) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sector_id"
+    t.integer "district_id"
+    t.string "phone_number"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weathers", force: :cascade do |t|
+    t.jsonb "weather_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "forecast_days", "early_warning_forecasts"
+  add_foreign_key "forecast_hours", "forecast_days"
   add_foreign_key "services", "users"
 end

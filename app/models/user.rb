@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+  belongs_to :sector
+  belongs_to :district
 end

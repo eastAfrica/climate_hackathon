@@ -22,6 +22,24 @@
       </div>
 
       <div class="form-group">
+        <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Phone number' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.select :sector_id, Sector.all.collect {|x| [x.name , x.id]}, {:include_blank => "Select sector"},class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.select :district_id, District.all.collect {|x| [x.name , x.id]}, {:include_blank => "Select district"},class: 'form-control' %>
+
+      </div>
+
+      <div class="form-group">
+        <% roles=['Meteo', 'MIDIMAR'] %>
+        <%= f.select :role, roles.map {|x| [x , x]}, {:include_blank => "Select Role"},class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
       </div>
     <% end %>

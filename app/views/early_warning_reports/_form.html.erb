@@ -1,0 +1,55 @@
+<%= form_with(model: early_warning_report, local: true) do |form| %>
+  <% if early_warning_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(early_warning_report.errors.count, "error") %> prohibited this early_warning_report from being saved:</h2>
+
+      <ul>
+      <% early_warning_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.collection_select(:early_warning_id , EarlyWarningForecast.all, :id, :created_at.to_s, {:prompt => 'Select EarlyWarningForecast'} ,allow_blank: true, class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= form.collection_select(:sector_id , Sector.all, :id, :name, {:prompt => 'Select sector'} ,allow_blank: true, class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <% levels=['Level 0','Level 1','Level 2','Level 3','Level 4'] %>
+    <%= form.select :level, levels.map {|x| [x , x]}, {:include_blank => "Select level"},class: 'form-control' %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%= form.label :feedback_id %>
+    <%= form.text_field :feedback_id, class: 'form-control' %>
+  </div> -->
+
+  <div class="form-group">
+    <%= form.label :reciever_id %>
+    <br/>
+    <%= form.select('reciever_id', User.all.map.collect {|p| [ p.name, p.id ] },
+                                               { :prompt => "Please select"},
+                                               { :multiple => true, :size => 5 })%>
+  </div>
+
+  <div class="form-group">
+    <% if early_warning_report.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', early_warning_report, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if early_warning_report.persisted? %>
+      <%= link_to "Cancel", early_warning_report, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", early_warning_reports_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

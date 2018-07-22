@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to feedbacks_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Feedbacks
+  <% end %>
+  <%= link_to edit_feedback_path(@feedback), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show feedback</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Caller:</dt>
+  <dd><%= @feedback.caller_id %></dd>
+
+  <dt>Report:</dt>
+  <dd><%= @feedback.report_id %></dd>
+
+  <dt>Audio url:</dt>
+  <dd><%= @feedback.audio_url %></dd>
+
+</dl>

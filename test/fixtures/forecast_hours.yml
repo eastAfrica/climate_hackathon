@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disruption_level: MyString
+  probability_of_occurence: MyString
+  forecast_day: one
+
+two:
+  disruption_level: MyString
+  probability_of_occurence: MyString
+  forecast_day: two

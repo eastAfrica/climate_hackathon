@@ -1,0 +1,18 @@
+<div class="nested-fields">
+  <div class="nested-panel-heading text-right">
+    <%= link_to_remove_association "Remove day", f, class: "form-button btn btn-danger-custom" %>
+  </div>
+  <div class="field datetime-select nested-panel">
+    <%= f.label :day_of_forecast %>
+    <%= f.date_select(:day_of_forecast, order: [:day, :month, :year]) %>
+  </div>
+  <div class="hours">
+    <%= f.fields_for :forecast_hours do |forecast_hour| %>
+      <%= render 'forecast_hour_fields', f: forecast_hour %>
+    <% end %>
+  </div>
+
+  <div class="new-wpr-links links row">
+    <%= link_to_add_association 'New hours', f, :forecast_hours, class: "btn btn-primary-custom add-button col-xs-6 col-xs-offset-3" %>
+  </div>
+</div>

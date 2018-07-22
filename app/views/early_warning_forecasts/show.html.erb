@@ -1,0 +1,51 @@
+<div class="row content-header">
+  <div class="col-sm-6 action-buttons text-left">
+    <%= link_to early_warning_forecasts_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      All forecasts
+    <% end %>
+  </div>
+
+  <div class="col-sm-6 action-buttons text-right">
+    <%= link_to edit_early_warning_forecast_path(@early_warning_forecast), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Details
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-header">
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Early Warning Forecast <%= @early_warning_forecast.district.name %> prepared on <%= @early_warning_forecast.created_at.to_formatted_s(:long) %></th>
+            </tr>
+          </thead>
+
+          <tbody style="font-size: 11px">
+            <tr>
+              <td></td>
+              <td>Disruption not expected.</td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
+      </div>
+    </div>
+  </div>
+</div>

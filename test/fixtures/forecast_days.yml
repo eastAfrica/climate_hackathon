@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_of_forecast: 2018-07-20
+  early_warning_forecast: one
+
+two:
+  day_of_forecast: 2018-07-20
+  early_warning_forecast: two

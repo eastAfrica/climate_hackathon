@@ -1,2 +1,104 @@
-<h1>Welcome to Jumpstart!</h1>
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="row" >
+  <h1>Welcome to Early Warning System</h1>
+</div>
+
+<!-- cards for main menu -->
+<!-- row 1 -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Users</h5>
+
+        <%= link_to districts_path, class: "btn btn-primary" do %>
+          <small> <i class="fas fa-users"></i> Users </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Provinces</h5>
+
+        <%= link_to provinces_path, class: "btn btn-primary" do %>
+          <small>   <i class="fas fa-dice"></i> Provinces </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Districts</h5>
+
+        <%= link_to districts_path, class: "btn btn-primary" do %>
+          <small>   <i class="fas fa-dice-three"></i> Districts </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of row 1 -->
+<br>
+<!-- start of row 2 -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Manage Sectors</h5>
+
+        <%= link_to sectors_path, class: "btn btn-primary" do %>
+          <small> <i class="fas fa-dice-two"></i> Sectors </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Early Warning Forecasts</h5>
+
+        <%= link_to early_warning_forecasts_path, class: "btn btn-primary" do %>
+          <small>   <i class="fas fa-inbox"></i> Early Warning Forecasts </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Early Warning Reports</h5>
+
+        <%= link_to early_warning_reports_path, class: "btn btn-primary" do %>
+          <small>   <i class="fas fa-info-circle"></i> Early Warning Reports </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of row 2 -->
+<br>
+<!-- row number 3 -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Feedback</h5>
+
+        <%= link_to feedbacks_path, class: "btn btn-primary" do %>
+          <small>   <i class="fas fa-comments"></i> Feedback </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

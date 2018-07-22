@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.number_field :hour, class: 'form-control', placeholder: 'hour' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select(:disruption_level, @levels, allow_blank: true, prompt: 'Select disruption level', class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select(:probability_of_occurence, @probability, allow_blank: true, prompt: 'Select probability of occurence', class: 'form-control') %>
+  </div>
+
+  <div class="nested-panel-heading text-right">
+    <%= link_to_remove_association "Remove hour", f, class: "form-button btn btn-danger-custom" %>
+  </div>
+</div>

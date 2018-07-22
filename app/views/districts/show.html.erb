@@ -1,0 +1,36 @@
+<div class="row content-header">
+  <div class="col-sm-6 action-buttons text-left">
+    <%= link_to districts_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      All Districts
+    <% end %>
+  </div>
+
+  <div class="col-sm-6 action-buttons text-right">
+    <%= link_to edit_district_path(@district), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Details
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-header" style="padding-left: 20px; padding-top: 10px">
+        <h5>Name: <%= @district.name %></h5>
+        <p>Province: <%= @district.province.name %></p>
+        <p>Latitude: <%= @district.lat %></p>
+        <p>Longitude: <%= @district.long %><p>
+      </div>
+
+      <div class="panel-body" style="padding-left: 20px">
+        <p>Located in central Kigali, <%= @district.name %> is ...........</p>
+      </div>
+
+      <div class="panel-footer" style="padding-left: 20px; padding-bottom: 10px">
+        <%= link_to "Website", "http://www.gasabo.gov.rw/index.php?id=39" %>
+      </div>
+    </div>
+  </div>
+</div>
