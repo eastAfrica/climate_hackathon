@@ -5,6 +5,7 @@ class EarlyWarningReportsController < ApplicationController
   # GET /early_warning_reports.json
   def index
     @early_warning_reports = EarlyWarningReport.all
+    @recievers = User.all
   end
 
   # GET /early_warning_reports/1
@@ -20,27 +21,19 @@ class EarlyWarningReportsController < ApplicationController
 
   # GET /early_warning_reports/1/edit
   def edit
+    @recievers = User.all
   end
+
 
   # POST /early_warning_reports
   # POST /early_warning_reports.json
   def create
     @early_warning_report = EarlyWarningReport.new(early_warning_report_params)
-    puts " IN CREAEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe "+early_warning_report_params.to_s
+    recievers = early_warning_report_params['recieviers']
+    level = early_warning_report_params['level']
     respond_to do |format|
       if @early_warning_report.save
-        # account_sid = 'AC254f16a7c2ab5efd2304fc342bdbad86'
-        # auth_token = 'c885e1f40ec7d0b9d7b048c65a12365c'
-        # client = Twilio::REST::Client.new(account_sid, auth_token)
-        #
-        # from = '+18643629235 ' # Your Twilio number
-        # to = '+250734598922' # Your mobile phone number
-        #
-        # client.messages.create(
-        # from: from,
-        # to: to,
-        # body: "Test from rails code!"
-        # )
+        send_sms(recievers,level)
         format.html { redirect_to @early_warning_report, notice: 'Early warning report was successfully created and SMS sent' }
         format.json { render :show, status: :created, location: @early_warning_report }
       else
@@ -49,6 +42,7 @@ class EarlyWarningReportsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /early_warning_reports/1
   # PATCH/PUT /early_warning_reports/1.json
@@ -79,9 +73,22 @@ class EarlyWarningReportsController < ApplicationController
     def set_early_warning_report
       @early_warning_report = EarlyWarningReport.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def early_warning_report_params
-      params.require(:early_warning_report).permit(:reciever_id, :early_warning_id, :sector_id, :level, :feedback_id )
+      params.require(:early_warning_report).permit( :early_warning_id, :sector_id, :level, recieviers: [])
+    end
+    def send_sms(send_to,level)
+      account_sid = ENV["pusher_app_id"]
+      auth_token = ENV["pusher_key"]
+      from = '+18643629235 ' # Your Twilio number
+      array_of_rec = send_to.to_s.scan(/\d/).map(&:to_s)
+      array_of_rec.each do |reciever|
+        client = Twilio::REST::Client.new(account_sid, auth_token)
+        rec = User.find(reciever)
+        client.messages.create(
+        from: from,
+        to: '+25'+rec.phone_number,
+        body: "Early # WARNING: in your sector! " + level
+        )
+      end
     end
 end
