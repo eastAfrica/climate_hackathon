@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_22_214007) do
+ActiveRecord::Schema.define(version: 2018_07_22_235324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_07_22_214007) do
     t.integer "province_id"
     t.integer "district_id"
     t.integer "sector_id"
-    t.datetime "date_of_occurence"
     t.string "location"
     t.integer "deaths"
     t.integer "injured"
@@ -57,6 +56,7 @@ ActiveRecord::Schema.define(version: 2018_07_22_214007) do
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date_of_occurence"
   end
 
   create_table "districts", force: :cascade do |t|
