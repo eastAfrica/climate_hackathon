@@ -11,70 +11,68 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt>Event:</dt>
+  <dd><%= @disaster.event %></dd>
+
+  <dt>Province ID:</dt>
+  <dd><%= Province.first(@disaster.province_id)[0].name %></dd>
+
+  <dt>District ID:</dt>
+  <dd><%= District.first(@disaster.district_id)[0].name%></dd>
+
+  <dt>Sector ID:</dt>
+  <dd><%= Sector.first(@disaster.sector_id)[0].name %></dd>
+
+  <dt>Location:</dt>
+  <dd><%= @disaster.date_of_occurence %></dd>
+
   <dt>String:</dt>
-  <dd><%= @disaster.string %></dd>
+  <dd><%= @disaster.location %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Deaths:</dt>
+  <dd><%= @disaster.deaths %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Injured:</dt>
+  <dd><%= @disaster.injured %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Missing:</dt>
+  <dd><%= @disaster.missing %></dd>
 
-  <dt>Datetime:</dt>
-  <dd><%= @disaster.datetime %></dd>
+  <dt>Houses Destroyed:</dt>
+  <dd><%= @disaster.houses_destroyed %></dd>
 
-  <dt>String:</dt>
-  <dd><%= @disaster.string %></dd>
+  <dt>Houses Damaged:</dt>
+  <dd><%= @disaster.houses_damaged %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Directly Affected:</dt>
+  <dd><%= @disaster.directly_affected %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
-
-  <dt>Indirectly affected:</dt>
+  <dt>Indirectly Affected:</dt>
   <dd><%= @disaster.indirectly_affected %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Relocated People:</dt>
+  <dd><%= @disaster.relocated_people %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Evacuated People:</dt>
+  <dd><%= @disaster.evacuated_people %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Losses USD:</dt>
+  <dd><%= @disaster.losses_usd %></dd>
 
-  <dt>String:</dt>
-  <dd><%= @disaster.string %></dd>
+  <dt>Losses Local:</dt>
+  <dd><%= @disaster.losses_local %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Damages crops hectares:</dt>
+  <dd><%= @disaster.damages_crops_hectares %></dd>
 
-  <dt>Integer:</dt>
-  <dd><%= @disaster.integer %></dd>
+  <dt>Lost Cattle:</dt>
+  <dd><%= @disaster.lost_cattle %></dd>
 
-  <dt>String:</dt>
-  <dd><%= @disaster.string %></dd>
+  <dt>Damages roads meters:</dt>
+  <dd><%= @disaster.damages_roads_meters %></dd>
+
+  <dt>Comments:</dt>
+  <dd><%= @disaster.comments %></dd>
 
 </dl>
