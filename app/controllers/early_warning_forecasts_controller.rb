@@ -15,6 +15,8 @@ class EarlyWarningForecastsController < ApplicationController
   # GET /early_warning_forecasts/new
   def new
     @early_warning_forecast = EarlyWarningForecast.new
+    @levels = ['Grey', 'Yellow', 'Orange', 'Red']
+    @probability = ['<15%', '>15% and <50%','≥50% and <85%','≥85%' ]
   end
 
   # GET /early_warning_forecasts/1/edit

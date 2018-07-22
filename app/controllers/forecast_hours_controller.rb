@@ -15,6 +15,8 @@ class ForecastHoursController < ApplicationController
   # GET /forecast_hours/new
   def new
     @forecast_hour = ForecastHour.new
+    @levels = ['Grey', 'Yellow', 'Orange', 'Red']
+    @probability = ['<15%', '>15% and <50%','≥50% and <85%','≥85%' ]
   end
 
   # GET /forecast_hours/1/edit
