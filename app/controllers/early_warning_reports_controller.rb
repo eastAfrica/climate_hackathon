@@ -74,7 +74,7 @@ class EarlyWarningReportsController < ApplicationController
       @early_warning_report = EarlyWarningReport.find(params[:id])
     end
     def early_warning_report_params
-      params.require(:early_warning_report).permit( :early_warning_id, :sector_id, :level, recieviers: [])
+      params.require(:early_warning_report).permit( :sector_id, :level, recieviers: [])
     end
     def send_sms(send_to,level)
       account_sid = ENV["pusher_app_id"]
