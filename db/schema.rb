@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_22_122010) do
+ActiveRecord::Schema.define(version: 2018_07_22_135018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2018_07_22_122010) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer "caller_id"
+    t.string "caller_id"
     t.string "audio_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

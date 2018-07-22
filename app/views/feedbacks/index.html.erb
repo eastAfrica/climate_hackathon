@@ -17,29 +17,37 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
+
 
             <th>Caller</th>
-            <th>Report</th>
-            <th>Audio url</th>
-            
-          <th></th>
-        
+            <th>Date</th>
+            <th>Details</th>
+
+
+
       </tr>
     </thead>
 
     <tbody>
       <% @feedbacks.each do |feedback| %>
         <%= content_tag :tr, id: dom_id(feedback), class: dom_class(feedback) do %>
-          
+
 
                       <td><%= feedback.caller_id %></td>
-                      <td><%= feedback.report_id %></td>
-                      <td><%= feedback.audio_url %></td>
-          
-          
-            <td><%= link_to 'Show', feedback %></td>
-          
+                      <td><%= feedback.created_at %></td>
+                      <!-- <td><% complete_url = "https://api.twilio.com/2010-04-01/Accounts/"+
+                                          ENV["pusher_app_id"]+"/Recordings/"+feedback.audio_url+".wav" %>
+                        <a href="javascript:void(0)" id="playsound" data-no-turbolink="false" >Play Audio feedback</a>
+
+                        <audio id="sound_effect" class="audio_player" preload="auto">
+                            <source src='<%= complete_url %>' type="audio/wav">
+                        </audio>
+                          <%= complete_url%>
+                      </td> -->
+
+
+            <td><%= link_to  'Go to Details', feedback ,data: { turbolinks: false } %></td>
+
         <% end %>
       <% end %>
     </tbody>
