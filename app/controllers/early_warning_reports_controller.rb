@@ -90,6 +90,7 @@ class EarlyWarningReportsController < ApplicationController
       auth_token = ENV["pusher_key"]
       from = '+18643629235 ' # Your Twilio number
       array_of_rec = send_to.to_s.scan(/\d/).map(&:to_s)
+      ngork_url = "df5f72e7"
       array_of_rec.each do |reciever|
         client = Twilio::REST::Client.new(account_sid, auth_token)
         rec = User.find(reciever)
@@ -97,7 +98,7 @@ class EarlyWarningReportsController < ApplicationController
         from: from,
         to: '+25'+rec.phone_number,
         body: "Early # WARNING: in your sector! " + level,
-        status_callback: "http://942c2b0f.ngrok.io/feedbacks_sms_status/"
+        status_callback: "http://"+ngork_url+".ngrok.io/feedbacks_sms_status/"
         )
       end
     end
