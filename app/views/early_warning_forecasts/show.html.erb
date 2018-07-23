@@ -53,7 +53,7 @@
 
                   <% forecastday.forecast_hours.each do |fh| %>
                       <tbody>
-                        <td><%= fh.hour %></td>
+                        <td><%= fh.hour %>:00 hrs</td>
                         <td><%= fh.disruption_level %></td>
                         <td><%= fh.probability_of_occurence %><br></td>
                       </tbody>

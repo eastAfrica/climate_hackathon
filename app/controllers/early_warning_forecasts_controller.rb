@@ -17,13 +17,13 @@ class EarlyWarningForecastsController < ApplicationController
   def new
     @early_warning_forecast = EarlyWarningForecast.new
     @levels = ['Grey', 'Yellow', 'Orange', 'Red']
-    @probability = ['0 - <15%', '>15% - <50%','≥50% - <85%','≥85% - <100' ]
+    @probability = ['0 - 15%', '16% - 50%','51% - 85%','86% - 100' ]
   end
 
   # GET /early_warning_forecasts/1/edit
   def edit
     @levels = ['Grey', 'Yellow', 'Orange', 'Red']
-    @probability = ['0 - <15%', '>15% - <50%','≥50% - <85%','≥85% - <100' ]
+    @probability = ['0 - 15%', '16% - 50%','51% - 85%','86% - 100' ]
   end
 
   # POST /early_warning_forecasts
