@@ -1,15 +1,22 @@
 <div class="row content-header">
-  <div class="col-sm-6 action-buttons text-left">
+  <div class="col-sm-4 action-buttons text-left">
     <%= link_to early_warning_forecasts_path, class: 'btn btn-primary' do %>
       <span class="glyphicon glyphicon-list-alt"></span>
       All forecasts
     <% end %>
   </div>
 
-  <div class="col-sm-6 action-buttons text-right">
+  <div class="col-sm-4 action-buttons text-right">
     <%= link_to edit_early_warning_forecast_path(@early_warning_forecast), class: 'btn btn-primary' do %>
       <span class="glyphicon glyphicon-pencil"></span>
       Edit Details
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 action-buttons text-right">
+    <%= link_to early_warning_reports_path(@early_warning_reports), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Create a notification
     <% end %>
   </div>
 </div>
