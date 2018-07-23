@@ -39,6 +39,7 @@ class EarlyWarningReportsController < ApplicationController
     respond_to do |format|
       if @early_warning_report.save
         send_sms(recievers,level)
+
         format.html { redirect_to @early_warning_report, notice: 'Early warning report was successfully created and SMS sent' }
         format.json { render :show, status: :created, location: @early_warning_report }
       else
