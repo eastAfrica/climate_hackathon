@@ -1,26 +1,38 @@
-<div class="page-header">
-  <%= link_to early_warning_reports_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    All Early_warning_reports
-  <% end %>
-  <%= link_to edit_early_warning_report_path(@early_warning_report), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
-  <h1>Show early_warning_report</h1>
+<div class="row content-header">
+  <div class="col-sm-6 action-buttons text-left">
+    <%= link_to early_warning_reports_path, class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      All Notifications
+    <% end %>
+  </div>
+
+  <div class="col-sm-6 action-buttons text-right">
+    <%= link_to edit_early_warning_report_path(@early_warning_report), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Details
+    <% end %>
+  </div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Early warning:</dt>
-  <dd><%= @early_warning_report.early_warning_id %></dd>
+<div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <h4>Notification for <%= @early_warning_report.sector.try(:name) %>, sent on <%= @early_warning_report.created_at.to_formatted_s(:long) %>.</h4>
+    </div>
+    <div class="panel-body">
+      <dt>Level:</dt>
+      <dd><%= @early_warning_report.level %></dd>
 
-  <dt>Sector:</dt>
-  <dd><%= @early_warning_report.sector_id %></dd>
-
-  <dt>Level:</dt>
-  <dd><%= @early_warning_report.level %></dd>
-
-  <dt>Reciever:</dt>
-  <dd><%= @early_warning_report.recieviers %></dd>
-
-</dl>
+      <dt>Sent to:</dt>
+      <dd>
+        <% array_of_rec = @early_warning_report.recieviers.scan(/\d/).map(&:to_s) %>
+        <% array_of_rec.each do |reciever| %>
+          <% r = User.find(reciever) %>
+          <li><%= r.name %></li>
+        <% end %>
+      </dd>
+    </div>
+    <div class="panel-footer">
+    </div>
+  </div>
+</div>
