@@ -28,7 +28,7 @@
           <tbody>
             <% @early_warning_forecasts.each do |early_warning_forecast| %>
               <%= content_tag :tr, id: dom_id(early_warning_forecast), class: dom_class(early_warning_forecast) do %>
-                  <td><%= link_to early_warning_forecast.district.name, early_warning_forecast  %></td>
+                  <td><%= link_to early_warning_forecast.district.try(:name), early_warning_forecast  %></td>
                   <td><%= early_warning_forecast.created_at.to_formatted_s(:long) %>
               <% end %>
             <% end %>

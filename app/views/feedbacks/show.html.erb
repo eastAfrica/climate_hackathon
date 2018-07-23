@@ -7,15 +7,14 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show feedback</h1>
+  <h1>Feedback </h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Caller:</dt>
+  <dt>Caller</dt>
   <dd><%= @feedback.caller_id %></dd>
 
-  <dt>Audio url:</dt>
-  <dd><%= @feedback.audio_url %></dd>
+  <dt>Audio:</dt>
   <td><% complete_url = "https://api.twilio.com/2010-04-01/Accounts/"+
                       ENV["pusher_app_id"]+"/Recordings/"+ @feedback.audio_url+".wav" %>
       <a href="javascript:void(0)" id="playsound" data-no-turbolink="true" >Play Audio feedback</a>
@@ -23,7 +22,7 @@
       <audio id="sound_effect" class="audio_player" preload="auto">
           <source src='<%= complete_url %>' type="audio/wav">
       </audio>
-      
+
   </td>
 
 </dl>
