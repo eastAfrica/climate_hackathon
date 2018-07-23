@@ -5,7 +5,8 @@
 4. Sector -add Feedback sector level
 5. All buttons and Lables customization
 6. UI colors, fonts .. customization
-7. There is an issue with disasters form 
+7. Redirection in forms
+8. Email to midimar from meteo 
 
 # README
 
