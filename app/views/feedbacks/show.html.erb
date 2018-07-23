@@ -14,10 +14,16 @@
   <dt>Caller:</dt>
   <dd><%= @feedback.caller_id %></dd>
 
-  <dt>Report:</dt>
-  <dd><%= @feedback.report_id %></dd>
-
   <dt>Audio url:</dt>
   <dd><%= @feedback.audio_url %></dd>
+  <td><% complete_url = "https://api.twilio.com/2010-04-01/Accounts/"+
+                      ENV["pusher_app_id"]+"/Recordings/"+ @feedback.audio_url+".wav" %>
+      <a href="javascript:void(0)" id="playsound" data-no-turbolink="true" >Play Audio feedback</a>
+
+      <audio id="sound_effect" class="audio_player" preload="auto">
+          <source src='<%= complete_url %>' type="audio/wav">
+      </audio>
+      
+  </td>
 
 </dl>

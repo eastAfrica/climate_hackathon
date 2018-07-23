@@ -3,7 +3,11 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   post '/feedbacks_save_from_ngork/' => 'feedbacks#save_from_ngork'
   get '/feedbacks_save_from_ngork/' => 'feedbacks#save_from_ngork'
-
+  get '/feedbacks_sms_status/' => 'feedbacks#sms_status'
+  post '/feedbacks_sms_status/' => 'feedbacks#sms_status'
+  get '/early_warning_reports/sms_call_back' => 'early_warning_reports#sms_call_back'
+  post '/early_warning_reports/sms_call_back' => 'early_warning_reports#sms_call_back'
+  get 'download_disaster_data' => 'download_data#download_data'
 
   resources :feedbacks
   resources :early_warning_reports

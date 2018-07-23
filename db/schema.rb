@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_234606) do
+ActiveRecord::Schema.define(version: 2018_07_22_235324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_07_21_234606) do
     t.integer "province_id"
     t.integer "district_id"
     t.integer "sector_id"
-    t.datetime "date_of_occurence"
     t.string "location"
     t.integer "deaths"
     t.integer "injured"
@@ -57,6 +56,7 @@ ActiveRecord::Schema.define(version: 2018_07_21_234606) do
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date_of_occurence"
   end
 
   create_table "districts", force: :cascade do |t|
@@ -78,14 +78,14 @@ ActiveRecord::Schema.define(version: 2018_07_21_234606) do
     t.integer "early_warning_id"
     t.integer "sector_id"
     t.string "level"
-    t.integer "feedback_id"
-    t.integer "reciever_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "recieviers"
+    t.string "sms_status"
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer "caller_id"
+    t.string "caller_id"
     t.string "audio_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2018_07_21_234606) do
     t.bigint "forecast_day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "hour"
+    t.string "hour"
     t.index ["forecast_day_id"], name: "index_forecast_hours_on_forecast_day_id"
   end
 
